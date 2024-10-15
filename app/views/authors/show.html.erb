@@ -1,0 +1,23 @@
+<h1><%= @author.name %></h1>
+
+<p><%= @author.body %></p>
+<p>Birthday date: <%= @author.date %></p>
+
+
+<ul>
+  <li><%= link_to "Edit", edit_author_path(@author) %></li>
+  <li><%= link_to "Destroy", author_path(@author), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+
+<h2>Details</h2>
+<% @author.books.each do |book| %>
+    <%= render "books/book", book: book %>
+  <% end %>
+  
+
+<h2>Add a books:</h2>
+<%= render "books/form", author: @author %> 
