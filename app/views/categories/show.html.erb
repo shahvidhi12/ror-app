@@ -1,0 +1,23 @@
+<h1><%= @category.status %></h1>
+
+<p><%= @category.grade %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_category_path(@category) %></li>
+  <li><%= link_to "Destroy", category_path(@category), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<h2>Authors</h2>
+<ul>
+  <% @category.authors.each do |author| %>
+    <li>
+      <%= link_to author.name, category_author_path(@category, author) %>
+    </li>
+  <% end %>
+</ul>
+
+
+

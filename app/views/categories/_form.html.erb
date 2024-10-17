@@ -1,0 +1,17 @@
+<%= form_with model: category  do |form| %>
+    <div>
+        <%= form.label :status %><br>
+        <%= form.select :status, options_for_select([['Famous', 'famous'], ['Average', 'average'], ['Good', 'good'],['Poor', 'poor']]) %>
+    </div>
+  
+    <div>
+      <%= form.label :grade %><br>
+      <%= form.select :grade, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']]) %>
+    </div>
+
+  
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+  

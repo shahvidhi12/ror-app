@@ -1,19 +1,20 @@
 <h1><%= @author.name %></h1>
 
 <p><%= @author.body %></p>
-<p>Birthday date: <%= @author.date %></p>
+<p>Birthday date: <%= @author.date.strftime("%d/%m/%Y") if @author.date.present? %></p>
+
 
 
 <ul>
-  <li><%= link_to "Edit", edit_author_path(@author) %></li>
-  <li><%= link_to "Destroy", author_path(@author), data: {
+  <li><%= link_to "Edit", edit_category_author_path(@category, @author) %></li>
+  <li><%= link_to "Destroy", category_author_path(@category, @author), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
 
 
-<h2>Details</h2>
+<h2>Book Details</h2>
 <% @author.books.each do |book| %>
     <%= render "books/book", book: book %>
   <% end %>

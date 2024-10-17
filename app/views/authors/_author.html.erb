@@ -1,0 +1,21 @@
+<p>
+    <strong>Author:</strong>
+    <%= author.name %>
+  </p>
+
+  <p>
+    <strong>Author Detail:</strong>
+    <%= author.body %>
+  </p>
+
+  <p>
+    <strong>Author date:</strong>
+    <%= author.date %>
+  </p>
+
+  <p>
+    <%= link_to "Destroy author", [@category, author], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+  </p>

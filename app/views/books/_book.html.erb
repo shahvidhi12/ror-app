@@ -1,5 +1,5 @@
 <p>
-    <strong>Book:</strong>
+    <strong>Book Title:</strong>
     <%= book.title %>
   </p>
 
@@ -9,7 +9,7 @@
   </p>
 
   <p>
-    <%= link_to "Destroy Comment", [book.author, book], data: {
+    <%= link_to "Destroy Book", [@category, @author, book], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                 } %>

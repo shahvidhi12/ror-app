@@ -1,34 +1,40 @@
 class AuthorsController < ApplicationController
+
   def index
-    @authors = Author.all
+    @authors = Author.all 
   end
   
   def show
+    @category = Category.find(params[:category_id])
     @author = Author.find(params[:id])
   end
 
   def new
-    @author = Author.new
+    @category = Category.find(params[:category_id])
+    @author =  @category.authors.build
   end
 
   def create
-    @author = Author.new(author_params)
+    @category = Category.find(params[:category_id])
+    @author = @category.authors.new(author_params)
 
     if @author.save
-      redirect_to @author
+      redirect_to category_author_path(@category, @author)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @author = Author.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @author = @category.authors.find(params[:id])
   end
   def update
-    @author = Author.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @author = @category.authors.find(params[:id])
 
     if @author.update(author_params)
-      redirect_to @author
+      redirect_to category_author_path(@category, @author) 
     else
       render :edit, status: :unprocessable_entity
     end
