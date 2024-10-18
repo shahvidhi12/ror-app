@@ -1,7 +1,8 @@
 class AuthorsController < ApplicationController
 
   def index
-    @authors = Author.all 
+    @category = Category.find(params[:category_id]) 
+    @authors = @category.authors.all 
   end
   
   def show
@@ -48,6 +49,6 @@ class AuthorsController < ApplicationController
   end
   private
   def author_params
-    params.require(:author).permit(:name, :body, :date)
+    params.require(:author).permit(:name, :body, :date, :last_name, :email, :age, :country)
   end
 end

@@ -6,6 +6,12 @@ gem "rails", "~> 7.2.1"
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 gem "pg"
+# Use bootstap
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'sassc-rails'
+gem 'dartsass-rails'
+gem 'cssbundling-rails'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]

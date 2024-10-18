@@ -1,6 +1,9 @@
 <h1><%= @author.name %></h1>
-
+<p><%= @author.last_name %></p>
 <p><%= @author.body %></p>
+<p><%= @author.age %></p>
+<p><%= @author.email %></p>
+<p><%= @author.country %></p>
 <p>Birthday date: <%= @author.date.strftime("%d/%m/%Y") if @author.date.present? %></p>
 
 

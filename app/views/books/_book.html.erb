@@ -1,17 +1,17 @@
 <p>
     <strong>Book Title:</strong>
     <%= book.title %>
-  </p>
+</p>
 
-  <p>
+<p>
     <strong>Book Detail:</strong>
     <%= book.body %>
-  </p>
+</p>
 
-  <p>
-    <%= link_to "Destroy Book", [@category, @author, book], data: {
+<p>
+    <%= link_to "Destroy Book", [@category, @author, @book], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                 } %>
-  </p>
+</p>
 
