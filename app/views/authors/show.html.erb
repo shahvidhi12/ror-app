@@ -24,4 +24,4 @@
   
 
 <h2>Add a books:</h2>
-<%= render "books/form", author: @author %> 
+<%= render "books/form", book: @author.books.new, author: @author, category: @category %> 

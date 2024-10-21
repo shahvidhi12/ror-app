@@ -1,12 +1,12 @@
 <%= form_with model: category  do |form| %>
     <div>
         <%= form.label :status %><br>
-        <%= form.select :status, options_for_select([['Famous', 'famous'], ['Average', 'average'], ['Good', 'good'],['Poor', 'poor']]) %>
+        <%= form.select :status, options_for_select([['Famous', 'famous'], ['Average', 'average'], ['Good', 'good'],['Poor', 'poor'],['No.1 Seller','No.1 Seller' ]]) %>
     </div>
   
     <div>
       <%= form.label :grade %><br>
-      <%= form.select :grade, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']]) %>
+      <%= form.select :grade, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'],['5','5']]) %>
     </div>
 
   
