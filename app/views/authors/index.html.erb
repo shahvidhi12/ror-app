@@ -3,8 +3,7 @@
 <ul>
   <% @authors.each do |author| %>
     <li>
-      <a href="<%= category_author_path(author.category_id, author) %>">
-        <%= author.name %>
+      <%= link_to author.name, category_author_path(@category, author) %>
       </a>
     </li>
   <% end %>

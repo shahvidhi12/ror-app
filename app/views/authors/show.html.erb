@@ -13,15 +13,10 @@
   <li><%= link_to "Destroy", category_author_path(@category, @author), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
+                  } %>
+                  <%= button_to "Destroy", category_author_path(@category, @author), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+                  </li>
 </ul>
 
 
-<h2>Book Details</h2>
-<% @author.books.each do |book| %>
-    <%= render "books/book", book: book %>
-  <% end %>
-  
-
-<h2>Add a books:</h2>
-<%= render "books/form", book: @author.books.new, author: @author, category: @category %> 
+ 

@@ -1,0 +1,15 @@
+<h1>Books</h1>
+
+<ul>
+  <% if @books.present? %>
+    <% @books.each do |book| %>
+      <li>
+        <%= link_to book.title, category_author_book_path(@category, @author, book) %>
+      </li>
+    <% end %>
+  <% else %>
+    <li>No books available</li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Books", new_category_author_book_path(@category, @author) %>

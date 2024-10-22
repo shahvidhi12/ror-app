@@ -2,3 +2,12 @@
 
 <p><%= @book.body %></p>
 
+<ul>
+  <li><%= link_to "Edit", edit_category_author_book_path(@category, @author, @book) %></li>
+  <li><%= link_to "Destroy", category_author_book_path(@category, @author), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+                  <%= button_to "Destroy", category_author_book_path(@category, @author), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+                  </li>
+</ul>
