@@ -1,4 +1,4 @@
-<%= form_with(model: @author, url: category_authors_path(@category.id)) do |form| %>
+<%= form_with model: author do |form| %>
     <div>
       <%= form.label :name %><br>
       <%= form.text_field :name %>

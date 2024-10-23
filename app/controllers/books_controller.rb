@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-    before_action :set_author, only: [:index, :new, :create, :show]
+    before_action :set_author, only: [:index, :show, :destroy, :edit, :update]
     def index
         @books = @author.books.all 
     end
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
         @book = @author.books.find(params[:id])
         
         if @book.update(book_params)
-          redirect_to category_author_path(@category, @author), notice: 'Book was successfully updated.'
+          redirect_to category_author_book_path(@category, @author, @book), notice: 'Book was successfully updated.'
         else
           render :edit, status: :unprocessable_entity
         end
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     def destroy
       @book = @author.books.find(params[:id])
       @book.destroy
-      redirect_to category_author_path(@category, @author), notice: 'Book was successfully deleted.', status: :see_other
+      redirect_to category_author_book_path(@category, @author), notice: 'Book was successfully deleted.', status: :see_other
     end
   
     def show
@@ -44,7 +44,7 @@ class BooksController < ApplicationController
     private 
     def set_author
         @category = Category.find(params[:category_id])
-        @author = @category.authors.find(params[:author_id]) # Adjust based on your route
+        @author = @category.authors.find(params[:author_id]) 
       end
   
     def book_params

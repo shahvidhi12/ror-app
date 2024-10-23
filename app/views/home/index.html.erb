@@ -1,43 +1,33 @@
 <%= form_with(url: root_path, method: :get, local: true) do %>
     <div class="input-group mb-3">
       <input type="text" name="query" class="form-control" placeholder="Search categories status..." value="<%= params[:query] %>">
+      <%= label_tag :country, 'Select Country' %>
+      <%= select_tag :country, options_for_select(@countries, params[:country]), include_blank: true, class: 'form-control' %>
       <button class="btn btn-primary" type="submit">Search</button>
     </div>
-<% end %>
-<%= form_with(url: root_path, method: :get, local: true) do %>
-  <div class="input-group mb-3">
-    <%= label_tag :country, 'Select Country' %>
-    <%= select_tag :country, options_for_select(@countries, params[:country]), include_blank: true %>
-    <%= submit_tag "Search Authors" %>
-  </div>
-<% end %>
+  <% end %>
   
-<h1 class="mb-4">Authors, Categories, and Books</h1>
-<div class="table-responsive">
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Category Status</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Age</th>
-        <th>Country</th>
-        <th>Email</th>
-        <th>Birthdate</th>
-        <th>Books</th>
-        <th>Actions</th>
-      </tr>
-      <tr>
-        <th>Categories: <%= @categories.count %></th>
-        <th colspan="7"></th> 
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <% category.authors.each do |author| %>
+  <h1 class="mb-4">Authors, Categories, and Books</h1>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Category Status</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Country</th>
+          <th>Email</th>
+          <th>Birthdate</th>
+          <th>Books</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @authors.each do |author| %>
           <tr>
-            <td><%= category.status %></td>
-            <td><%= link_to author.name, category_author_path(category, author) %></td>
+            <td><%= author.category.status %></td>
+            <td><%= link_to author.name, category_author_path(author.category, author) %></td>
             <td><%= author.last_name %></td>
             <td><%= author.age %></td>
             <td><%= author.country %></td>
@@ -56,17 +46,17 @@
             </td>
             <td>
               <ul class="list-inline">
-                <li class="list-inline-item"><%= link_to "Edit", edit_category_author_path(category, author), class: "btn btn-warning btn-sm" %></li>
-                <li class="list-inline-item"><%= link_to "Destroy", category_author_path(category, author), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></li>
+                <li class="list-inline-item"><%= link_to "Edit", edit_category_author_path(author.category, author), class: "btn btn-warning btn-sm" %></li>
+                <li class="list-inline-item"><%= link_to "Destroy", category_author_path(author.category, author), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></li>
               </ul>
             </td>
           </tr>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="pagination">
-  <%= paginate @categories %>
-</div>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="pagination">
+    <%= paginate @authors %>
+  </div>
+  

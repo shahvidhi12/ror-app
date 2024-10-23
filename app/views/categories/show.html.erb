@@ -13,15 +13,3 @@
 
 </ul>
 
-<h2>Authors</h2>
-<ul>
-  <% @category.authors.each do |author| %>
-    <li>
-      <%= link_to author.name, category_author_path(@category, author) %>
-    </li>
-  <% end %>
-</ul>
-
-<h2>Add a Authors:</h2>
-<%= render "authors/form", author: @author %>
-

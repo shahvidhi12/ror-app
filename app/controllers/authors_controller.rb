@@ -32,7 +32,7 @@ include ResourceLoad
     @author = @category.authors.find(params[:id])
 
     if @author.update(author_params)
-      redirect_to category_author_path(@category, @author) 
+      redirect_to category_author_path(@category, @author)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -44,6 +44,6 @@ include ResourceLoad
   end
   private
   def author_params
-    params.permit(:name, :body, :date, :last_name, :email, :age, :country)
+    params.require(:author).permit(:name, :body, :date, :last_name, :email, :age, :country)
   end
 end
