@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
     before_action :set_author, only: [:index, :show, :destroy, :edit, :update]
     def index
-        @books = @author.books.all 
+        @books = @author.books.all
     end
     def new
       @book = @author.books.build
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     def destroy
       @book = @author.books.find(params[:id])
       @book.destroy
-      redirect_to category_author_book_path(@category, @author), notice: 'Book was successfully deleted.', status: :see_other
+      redirect_to category_author_path(@category, @author), notice: 'Book was successfully deleted.', status: :see_other
     end
   
     def show

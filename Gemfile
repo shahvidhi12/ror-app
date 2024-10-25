@@ -15,6 +15,12 @@ gem 'cssbundling-rails'
 # Use pagination
 gem 'kaminari'
 
+# Use serializer
+gem 'active_model_serializers'
+
+gem 'faker'
+
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -58,6 +64,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  #Use er daigram
+  gem 'rails-erd'
 end
 
 group :test do

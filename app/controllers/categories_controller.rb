@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     def index
-        @categories = Category.all
+      @categories = Category.includes(authors: :books)
     end
     def show
         @category = Category.find(params[:id])

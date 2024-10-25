@@ -6,7 +6,6 @@ include ResourceLoad
   end
   
   def show
-    @category = Category.find(params[:category_id])  # Find the category first
     @author = @category.authors.find(params[:id]) 
   end
 
@@ -40,7 +39,7 @@ include ResourceLoad
   def destroy
     @author = @category.authors.find(params[:id])
     @author.destroy
-    redirect_to category_authors_path(@category)
+    redirect_to category_path(@category)
   end
   private
   def author_params
