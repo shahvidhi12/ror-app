@@ -43,17 +43,13 @@
                 
               
                 <li>
-                  <strong><%= book['title'] || 'No title available' %></strong>
+                  <strong><%= book['title']  %></strong>
                 
                   
-                  <% if book[:id].present? %>
+                  <% if book['id'].present? %>
                     <div>
-                      <%= link_to 'Edit', edit_category_author_book_path(serialized_author[:category][:id], serialized_author[:id], book[:id]), class: 'btn btn-warning btn-sm' %>
-                      <%= link_to 'Delete', category_author_book_path(serialized_author[:category][:id], serialized_author[:id], book[:id]), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-                    </div>
-                      <li>Book ID: Not available</li>
-                      <li>Description: N/A</li>
-                    </ul>
+                      <%= link_to 'Edit', edit_category_author_book_path(serialized_author[:category][:id], serialized_author[:id], book['id']), class: 'btn btn-warning btn-sm' %>
+                      <%= link_to 'Delete', category_author_book_path(serialized_author[:category][:id], serialized_author[:id], book['id']), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
                   <% end %>
                 </li>
               <% end %>
